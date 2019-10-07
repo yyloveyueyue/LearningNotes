@@ -328,23 +328,30 @@ void test_MatrixLog6()
 
 void test_FKinSpace()
 {
+	int i;
 	double M[4][4] = {
-		-1, 0, 0, 0,
-		0, 1, 0, 6,
-		0, 0, -1, 2,
-		0, 0, 0, 1 };
-	int JoinNum = 3;
-	double Slist[6][3] = {
-		0,0,0,
-		0,0,0,
-		1,0,-1,
-		4,0,-6,
-		0,1,0,
-		0,0,-0.1 };
-	double thetalist[3] = { PI / 2,3, PI };
+		1.0000 ,   0 ,       0 , 213.0000,
+		0,     1.0000,       0,  267.8000,
+		0,          0,  1.0000,  478.9500,
+		0,         0 ,       0,   1.0000 };
+	int JoinNum = 6;
+	double Slist[6][6] = {
+		0  ,       0,         0,         0,         0,         0,
+		0,    1.0000,    1.0000,    1.0000,         0,    1.0000,
+		1.0000,    0,         0,         0,    1.0000,         0,
+		0, -151.9000, -395.5500, -395.5500,  110.4000, -478.9500,
+		0,         0,         0,         0, -213.0000,         0,
+		0,         0,         0,  213.0000,         0,  213.0000 };
+	double thetalist[6] = {0.1,0.2,0.3,0.4,0.5,PI/4 };
+	printf("thetalist:\n");
+	for (i = 0; i < 6; i++)
+	{
+		printf("%lf ", thetalist[i]);
+	}
+	printf("\n");
 	double T[4][4];
 	FKinSpace(M, JoinNum, (double *)Slist, thetalist, T);
-	int i;
+
 	printf("T:\n");
 	for (i = 0; i < 4; i++)
 	{

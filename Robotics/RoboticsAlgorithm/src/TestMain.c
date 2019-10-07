@@ -12,6 +12,6 @@
 #include "TestDemo.h"
 int main()
 {
-	test_LinePOInp();
+	test_FKinSpace();
 	return 0;
 }
